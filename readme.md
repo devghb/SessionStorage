@@ -1,10 +1,11 @@
+<pre>
 function ArtStorage()
 {
 	this.md5 = function(string){
 		var md5 = new md5();
 		return md5.get(string);
 	}
-	//��ʼ��,������л���
+	//初始化并清除所有缓存
 	this.init = function(){
 		if(!this.isCache()){
 			return false;
@@ -12,7 +13,7 @@ function ArtStorage()
 		window.sessionStorage.clear();
 		return this;
 	}
-	//�Ƿ�֧�ֻ���
+	//是否支持缓存
 	this.isCache = function(){
 		if(typeof(window.sessionStorage) == 'object'){
 			return true;
@@ -21,7 +22,7 @@ function ArtStorage()
 			return false;
 		}
 	}
-	//����
+	//设置缓存
 	this.set = function(key,val,timeout){
 		if(!this.isCache()){
 			return false;
@@ -36,7 +37,7 @@ function ArtStorage()
 		}
 		return true;
 	}
-	//��ȡ
+	//获取缓存
 	this.get = function(key){
 		if(!this.isCache()){
 			return false;
@@ -55,3 +56,4 @@ function ArtStorage()
 		}
 	}
 }
+</pre>
